@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Console</title>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body class="shower list">
+  <p>
+    Open dev tools and call <code>run()</code> in console.
+  </p>
+  <script>
+    function run() {
+      let res = {};
+			for(let i = 0; i < 1000; i++) {
+				console.log(res);
+				res[i] = i;
+			}
+    }
+  </script>
+</body>
+</html>
