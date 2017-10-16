@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Alert</title>
+	<title>Global Variables</title>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<p>Open dev tools and call <code>run()</code> in console.</p>
+<p>
+	Open dev tools and call <code>run()</code> in console.
+</p>
 <script>
 	function run(arg) {
-		let res = 0;
-		for(let i = 0; i < 1000; i++) {
-			alert(arg[i]);
-			if (arg[i] === 1) throw new Error('Can\'t work with 1.');
-		}
+		window.a = arg;
 	}
 </script>
 </body>

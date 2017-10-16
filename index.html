@@ -9,128 +9,280 @@
 </head>
 <body class="shower list">
 
-	<header class="caption">
-		<h1>Debugging</h1>
-	</header>
+<header class="caption">
+	<h1>Debugging</h1>
+</header>
 
-	<section class="slide" id="cover">
-		<h2>Debugging</h2>
-		<p>Brought to you by <a href="https://github.com/numminorihsf">Konstantin Petryaev</a></p>
-		<style>
-			#cover h2 {
-				margin:30px 0 0;
-				text-align:center;
-				font-size:70px;
-				}
-			#cover p {
-				margin:10px 0 0;
-				text-align:center;
-				font-style:italic;
-				font-size:20px;
-				}
-		</style>
-	</section>
+<section class="slide" id="cover">
+	<h2>Debugging</h2>
+	<p>Brought to you by <a href="https://github.com/numminorihsf">Konstantin Petryaev</a></p>
+	<style>
+		#cover h2 {
+			margin:30px 0 0;
+			text-align:center;
+			font-size:70px;
+		}
+		#cover p {
+			margin:10px 0 0;
+			text-align:center;
+			font-style:italic;
+			font-size:20px;
+		}
+	</style>
+</section>
 
-	<section class="slide">
-		<h2>Debugging</h2>
-		<p>Debugging is a process of finding and resolving of
-			defects or problem within the program that prevent correct operation</p>
-	</section>
+<section class="slide">
+	<h2>Debugging</h2>
+	<p>Debugging is a process of finding and resolving of
+		defects or problem within the program that prevent correct operation</p>
+</section>
 
-	<section class="slide">
-		<h2 class="shout">Read the error's message</h2>
-	</section>
+<section class="slide">
+	<h2 class="shout">Read the error's message</h2>
+</section>
 
-	<section class="slide">
-		<h2>Default ways</h2>
-		<ul>
-			<li><code>alert();</code></li>
-			<li><code>console.log();</code></li>
-			<li>Breakpoints</li>
-			<li><code>debugger;</code></li>
-		</ul>
-	</section>
-
-	<section class="slide">
-		<h2>alert();</h2>
-		<p>
-			<a target="_blank" href="examples/alert.html">Example</a>
-		</p>
-		<pre>
-			<code>function(arg) {</code>
-			<code>  alert(arg);</code>
-			<code>}</code>
-		</pre>
-	</section>
-
-	<section class="slide">
-		<h2>alert(); +</h2>
-		<p>
-			<a target="_blank" href="examples/alert_good.html">Example</a>
-		</p>
-		<ul>
-			<li>Works everywhere</li>
-			<li>Does not require devtools</li>
-			<li>Consistent</li>
-			<li>Stops eventloop</li>
-		</ul>
-	</section>
-
-	<section class="slide">
-		<h2>alert(); -</h2>
-		<p>
-			<a target="_blank" href="examples/alert_bad.html">Example</a>
-		</p>
-		<ul>
-			<li>Stops eventloop</li>
-			<li>Waits user's iteraction</li>
-		</ul>
-	</section>
-
-  <section class="slide">
-      <h2>console.log();</h2>
-			<p>
-				<a target="_blank" href="examples/console.html">Example</a>
-			</p>
-			<pre>
-				<code>function(arg) {</code>
-				<code>  console.log(arg);</code>
-				<code>}</code>
-			</pre>
-		</section>
-
-		<section class="slide">
-			<h2>console.log(); +</h2>
-			<p>
-				<a target="_blank" href="examples/console_good.html">Example</a>
-			</p>
-			<ul>
-				<li>Does not stop eventloop</li>
-        <li>Allows to see functions/links and other</li>
-				<li>User will not see (usually)</li>
-			</ul>
-		</section>
-
-		<section class="slide">
-			<h2>console.log(); -</h2>
-			<p>
-				<a target="_blank" href="examples/console_bad.html">Example</a>
-			</p>
-			<ul>
-				<li>Non-consistent sometimes</li>
-				<li>Need CPU for</li>
-			</ul>
-		</section>
+<section class="slide">
+	<h2>Code-ways</h2>
+	<ul>
+		<li><code>alert();</code></li>
+		<li><code>console.log();</code></li>
+		<li><code>debugger;</code></li>
+		<li class="next">monkey-patching</li>
+		<li class="next"><code>window[name] = anything;</code></li>
+	</ul>
+</section>
 
 
-	<footer class="badge">
-		<a href="https://github.com/shower/shower">Fork me on GitHub</a>
-	</footer>
+<section class="slide">
+	<h2>alert();</h2>
+	<p><a target="_blank" href="examples/alert.html">Example</a></p>
+	<pre>
+		<code>function(arg) {</code>
+		<code>  alert(arg);</code>
+		<code>}</code>
+	</pre>
+</section>
 
-	<div class="progress"></div>
+<section class="slide">
+	<h2>alert(); +</h2>
+	<p><a target="_blank" href="examples/alert_good.html">Example</a></p>
+	<ul>
+		<li>Works everywhere</li>
+		<li>Does not require devtools</li>
+		<li>Consistent</li>
+		<li>Stops eventloop</li>
+	</ul>
+</section>
 
-	<script src="shower/shower.min.js"></script>
-	<!-- Copyright © 2017 Yours Truly, Famous Inc. -->
+<section class="slide">
+	<h2>alert(); -</h2>
+	<p><a target="_blank" href="examples/alert_bad.html">Example</a></p>
+	<ul>
+		<li>Stops eventloop</li>
+		<li>Waits user's iteraction</li>
+	</ul>
+</section>
+
+
+<section class="slide">
+	<h2>console.log();</h2>
+	<p><a target="_blank" href="examples/console.html">Example</a></p>
+	<pre>
+		<code>function(arg) {</code>
+		<code>  console.log(arg);</code>
+		<code>}</code>
+	</pre>
+</section>
+
+<section class="slide">
+	<h2>console.log(); +</h2>
+	<p><a target="_blank" href="examples/console_good.html">Example</a></p>
+	<ul>
+		<li>Does not stop eventloop</li>
+		<li>Allows to see functions/links and other</li>
+		<li>User will not see (usually)</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>console.log(); -</h2>
+	<p><a target="_blank" href="examples/console_bad.html">Example</a></p>
+	<ul>
+		<li>Non-consistent sometimes</li>
+		<li>Many logs are difficult to read</li>
+	</ul>
+</section>
+
+
+<section class="slide">
+	<h2>debugger;</h2>
+	<p><a target="_blank" href="examples/debugger.html">Example</a></p>
+	<pre>
+		<code>function(arg) {</code>
+		<code>  debugger;</code>
+		<code>}</code>
+	</pre>
+</section>
+
+<section class="slide">
+	<h2>debugger; +</h2>
+	<p><a target="_blank" href="examples/debugger_good.html">Example</a></p>
+	<ul>
+		<li>Does not affect application without opened devtools</li>
+		<li>Can be ignored</li>
+		<li>Easy usage in case of broken source-maps</li>
+		<li>Write code and stops were you need</li>
+		<li>Allows to execute everything on pause</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>debugger; -</h2>
+	<p><a target="_blank" href="examples/debugger_bad.html">Example</a></p>
+	<ul>
+		<li>Source-maps breaks debugging a bit</li>
+		<li>Good ways to inject own code</li>
+	</ul>
+</section>
+
+
+<section class="slide">
+	<h2>monkey-patching</h2>
+	<p><a target="_blank" href="examples/monkey-patching.html">Example</a></p>
+	<pre>
+		<code>setImmediate = function setIm(cb, ...args) {</code>
+		<code>  return cb.call(this, ...args)</code>
+		<code>}</code>
+	</pre>
+</section>
+
+<section class="slide">
+	<h2>monkey-patching +</h2>
+	<ul>
+		<li>Allows to do everything with source code</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>monkey-patching -</h2>
+	<p><a target="_blank" href="examples/monkey-patching_bad.html">Example</a></p>
+	<ul>
+		<li>Allows to do everything with source code</li>
+		<li>Difficult to use without breaking code</li>
+	</ul>
+</section>
+
+
+<section class="slide">
+	<h2>global variables</h2>
+	<p><a target="_blank" href="examples/global-variables.html">Example</a></p>
+	<pre>
+		<code>function (arg) {</code>
+		<code>  window.a = arg;</code>
+		<code>}</code>
+	</pre>
+</section>
+
+<section class="slide">
+	<h2>global variables +</h2>
+	<ul>
+		<li>Simple way to check statements anytime</li>
+		<li>Simple way to call some hidden methods to check effect</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>global variables -</h2>
+	<ul>
+		<li>Naming is a problem</li>
+	</ul>
+</section>
+
+
+<section class="slide">
+	<h2>Browser-ways</h2>
+	<ul>
+		<li>Dev tools</li>
+		<li>Extensions (redux-dev-tools, react-dev-tools and so one)</li>
+	</ul>
+</section>
+
+
+<section class="slide">
+	<h2>Dev tools</h2>
+	<ul>
+		<li>console</li>
+		<li>breakpoints</li>
+		<li>expression watcher</li>
+		<li>call stack explorer</li>
+		<li>scope explorer</li>
+	</ul>
+</section>
+
+
+<section class="slide">
+	<h2>Console</h2>
+	<ul>
+		<li>errors and theirs messages</li>
+		<li>store anything from current scope</li>
+		<li>execute the code</li>
+	</ul>
+</section>
+
+
+<section class="slide">
+	<h2>Breakpoints</h2>
+	<ul>
+		<li>pause on exception</li>
+		<li>conditional breakpoints</li>
+		<li>XHR breakpoints</li>
+		<li>DOM breakpoints</li>
+		<li>Event breakpoints</li>
+	</ul>
+</section>
+
+
+<section class="slide">
+	<h2>Breakpoint</h2>
+	<p><a target="_blank" href="examples/breakpoint.html">Example</a></p>
+	<pre>
+		<code>function(arg) {</code>
+		<code>  return arg;</code>
+		<code>}</code>
+	</pre>
+</section>
+
+<section class="slide">
+	<h2>Breakpoint +</h2>
+	<ul>
+		<li>Easy to be managed from browser</li>
+		<li>Allows to see current scope as browser see it</li>
+		<li>Displays stacktrace and allow to traver over it</li>
+		<li>Allows to execute everything</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Breakpoint -</h2>
+	<ul>
+		<li>May be annoying</li>
+	</ul>
+</section>
+
+
+<section class="slide">
+	<h2 class="shout">Any questions?</h2>
+</section>
+
+
+<footer class="badge">
+	<a href="https://github.com/shower/shower">Fork me on GitHub</a>
+</footer>
+
+<div class="progress"></div>
+
+<script src="shower/shower.min.js"></script>
+<!-- Copyright © 2017 Yours Truly, Famous Inc. -->
 
 </body>
 </html>
