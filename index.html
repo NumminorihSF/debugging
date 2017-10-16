@@ -9,128 +9,151 @@
 </head>
 <body class="shower list">
 
-	<header class="caption">
-		<h1>Debugging</h1>
-	</header>
+<header class="caption">
+	<h1>Debugging</h1>
+</header>
 
-	<section class="slide" id="cover">
-		<h2>Debugging</h2>
-		<p>Brought to you by <a href="https://github.com/numminorihsf">Konstantin Petryaev</a></p>
-		<style>
-			#cover h2 {
-				margin:30px 0 0;
-				text-align:center;
-				font-size:70px;
-				}
-			#cover p {
-				margin:10px 0 0;
-				text-align:center;
-				font-style:italic;
-				font-size:20px;
-				}
-		</style>
-	</section>
+<section class="slide" id="cover">
+	<h2>Debugging</h2>
+	<p>Brought to you by <a href="https://github.com/numminorihsf">Konstantin Petryaev</a></p>
+	<style>
+		#cover h2 {
+			margin:30px 0 0;
+			text-align:center;
+			font-size:70px;
+		}
+		#cover p {
+			margin:10px 0 0;
+			text-align:center;
+			font-style:italic;
+			font-size:20px;
+		}
+	</style>
+</section>
 
-	<section class="slide">
-		<h2>Debugging</h2>
-		<p>Debugging is a process of finding and resolving of
-			defects or problem within the program that prevent correct operation</p>
-	</section>
+<section class="slide">
+	<h2>Debugging</h2>
+	<p>Debugging is a process of finding and resolving of
+		defects or problem within the program that prevent correct operation</p>
+</section>
 
-	<section class="slide">
-		<h2 class="shout">Read the error's message</h2>
-	</section>
+<section class="slide">
+	<h2 class="shout">Read the error's message</h2>
+</section>
 
-	<section class="slide">
-		<h2>Default ways</h2>
-		<ul>
-			<li><code>alert();</code></li>
-			<li><code>console.log();</code></li>
-			<li>Breakpoints</li>
-			<li><code>debugger;</code></li>
-		</ul>
-	</section>
-
-	<section class="slide">
-		<h2>alert();</h2>
-		<p>
-			<a target="_blank" href="examples/alert.html">Example</a>
-		</p>
-		<pre>
-			<code>function(arg) {</code>
-			<code>  alert(arg);</code>
-			<code>}</code>
-		</pre>
-	</section>
-
-	<section class="slide">
-		<h2>alert(); +</h2>
-		<p>
-			<a target="_blank" href="examples/alert_good.html">Example</a>
-		</p>
-		<ul>
-			<li>Works everywhere</li>
-			<li>Does not require devtools</li>
-			<li>Consistent</li>
-			<li>Stops eventloop</li>
-		</ul>
-	</section>
-
-	<section class="slide">
-		<h2>alert(); -</h2>
-		<p>
-			<a target="_blank" href="examples/alert_bad.html">Example</a>
-		</p>
-		<ul>
-			<li>Stops eventloop</li>
-			<li>Waits user's iteraction</li>
-		</ul>
-	</section>
-
-  <section class="slide">
-      <h2>console.log();</h2>
-			<p>
-				<a target="_blank" href="examples/console.html">Example</a>
-			</p>
-			<pre>
-				<code>function(arg) {</code>
-				<code>  console.log(arg);</code>
-				<code>}</code>
-			</pre>
-		</section>
-
-		<section class="slide">
-			<h2>console.log(); +</h2>
-			<p>
-				<a target="_blank" href="examples/console_good.html">Example</a>
-			</p>
-			<ul>
-				<li>Does not stop eventloop</li>
-        <li>Allows to see functions/links and other</li>
-				<li>User will not see (usually)</li>
-			</ul>
-		</section>
-
-		<section class="slide">
-			<h2>console.log(); -</h2>
-			<p>
-				<a target="_blank" href="examples/console_bad.html">Example</a>
-			</p>
-			<ul>
-				<li>Non-consistent sometimes</li>
-				<li>Need CPU for</li>
-			</ul>
-		</section>
+<section class="slide">
+	<h2>Code-ways</h2>
+	<ul>
+		<li><code>alert();</code></li>
+		<li><code>console.log();</code></li>
+		<li><code>debugger;</code></li>
+		<li class="next">monkey-patching</li>
+		<li class="next"><code>window[name] = anything;</code></li>
+	</ul>
+</section>
 
 
-	<footer class="badge">
-		<a href="https://github.com/shower/shower">Fork me on GitHub</a>
-	</footer>
+<section class="slide">
+	<h2>alert();</h2>
+	<p><a target="_blank" href="examples/alert.html">Example</a></p>
+	<pre>
+		<code>function(arg) {</code>
+		<code>  alert(arg);</code>
+		<code>}</code>
+	</pre>
+</section>
 
-	<div class="progress"></div>
+<section class="slide">
+	<h2>alert(); +</h2>
+	<p><a target="_blank" href="examples/alert_good.html">Example</a></p>
+	<ul>
+		<li>Works everywhere</li>
+		<li>Does not require devtools</li>
+		<li>Consistent</li>
+		<li>Stops eventloop</li>
+	</ul>
+</section>
 
-	<script src="node_modules/shower-core/shower.min.js"></script>
-	<!-- Copyright © 2017 Yours Truly, Famous Inc. -->
+<section class="slide">
+	<h2>alert(); -</h2>
+	<p><a target="_blank" href="examples/alert_bad.html">Example</a></p>
+	<ul>
+		<li>Stops eventloop</li>
+		<li>Waits user's iteraction</li>
+	</ul>
+</section>
+
+
+<section class="slide">
+	<h2>console.log();</h2>
+	<p><a target="_blank" href="examples/console.html">Example</a></p>
+	<pre>
+		<code>function(arg) {</code>
+		<code>  console.log(arg);</code>
+		<code>}</code>
+	</pre>
+</section>
+
+<section class="slide">
+	<h2>console.log(); +</h2>
+	<p><a target="_blank" href="examples/console_good.html">Example</a></p>
+	<ul>
+		<li>Does not stop eventloop</li>
+		<li>Allows to see functions/links and other</li>
+		<li>User will not see (usually)</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>console.log(); -</h2>
+	<p><a target="_blank" href="examples/console_bad.html">Example</a></p>
+	<ul>
+		<li>Non-consistent sometimes</li>
+		<li>Many logs are difficult to read</li>
+	</ul>
+</section>
+
+
+<section class="slide">
+	<h2>debugger;</h2>
+	<p><a target="_blank" href="examples/debugger.html">Example</a></p>
+	<pre>
+		<code>function(arg) {</code>
+		<code>  debugger;</code>
+		<code>}</code>
+	</pre>
+</section>
+
+<section class="slide">
+	<h2>debugger; +</h2>
+	<p><a target="_blank" href="examples/debugger_good.html">Example</a></p>
+	<ul>
+		<li>Does not affect application without opened devtools</li>
+		<li>Can be ignored</li>
+		<li>Easy usage in case of broken source-maps</li>
+		<li>Write code and stops were you need</li>
+		<li>Allows to execute everything on pause</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>debugger; -</h2>
+	<p><a target="_blank" href="examples/debugger_bad.html">Example</a></p>
+	<ul>
+		<li>Source-maps breaks debugging a bit</li>
+		<li>Good ways to inject own code</li>
+	</ul>
+</section>
+
+
+<footer class="badge">
+	<a href="https://github.com/shower/shower">Fork me on GitHub</a>
+</footer>
+
+<div class="progress"></div>
+
+<script src="node_modules/shower-core/shower.min.js"></script>
+<!-- Copyright © 2017 Yours Truly, Famous Inc. -->
 
 </body>
 </html>
