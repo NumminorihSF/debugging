@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Monkey Patching</title>
+	<title>Global Variables</title>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,12 +11,8 @@
 	Open dev tools and call <code>run()</code> in console.
 </p>
 <script>
-	setTimeout = function setTime(cb, ...args) {
-		return cb.call(this, ...args)
-	};
-
-	function run() {
-		setTimeout(() => console.log('executed'));
+	function run(arg) {
+		window.a = arg;
 	}
 </script>
 </body>

@@ -158,7 +158,6 @@
 
 <section class="slide">
 	<h2>monkey-patching +</h2>
-	<p><a target="_blank" href="examples/debugger_good.html">Example</a></p>
 	<ul>
 		<li>Allows to do everything with source code</li>
 	</ul>
@@ -166,10 +165,36 @@
 
 <section class="slide">
 	<h2>monkey-patching -</h2>
-	<p><a target="_blank" href="examples/debugger_bad.html">Example</a></p>
+	<p><a target="_blank" href="examples/monkey-patching_bad.html">Example</a></p>
 	<ul>
 		<li>Allows to do everything with source code</li>
 		<li>Difficult to use without breaking code</li>
+	</ul>
+</section>
+
+
+<section class="slide">
+	<h2>global variables</h2>
+	<p><a target="_blank" href="examples/global-variables.html">Example</a></p>
+	<pre>
+		<code>function (arg) {</code>
+		<code>  window.a = arg;</code>
+		<code>}</code>
+	</pre>
+</section>
+
+<section class="slide">
+	<h2>global variables +</h2>
+	<ul>
+		<li>Simple way to check statements anytime</li>
+		<li>Simple way to call some hidden methods to check effect</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>global variables -</h2>
+	<ul>
+		<li>Naming is a problem</li>
 	</ul>
 </section>
 

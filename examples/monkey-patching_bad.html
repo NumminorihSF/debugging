@@ -11,8 +11,12 @@
 	Open dev tools and call <code>run()</code> in console.
 </p>
 <script>
-	setTimeout = function setTime(cb, ...args) {
-		return cb.call(this, ...args)
+	setTimeout = function setIm(cb, ...args) {
+		console.log('planed', cb, ...args);
+		return setTimeout(function(...cbArgs){
+			console.log('execute', cb, ...cbArgs);
+			cb(...cbArgs);
+		}, ...args);
 	};
 
 	function run() {
