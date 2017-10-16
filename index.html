@@ -146,6 +146,36 @@
 </section>
 
 
+<section class="slide">
+	<h2>monkey-patching</h2>
+	<p><a target="_blank" href="examples/monkey-patching.html">Example</a></p>
+	<pre>
+		<code>setImmediate = function setIm(cb, ...args) {</code>
+		<code>  return cb.call(this, ...args)</code>
+		<code>}</code>
+	</pre>
+</section>
+
+<section class="slide">
+	<h2>monkey-patching +</h2>
+	<p><a target="_blank" href="examples/debugger_good.html">Example</a></p>
+	<ul>
+		<li>Allows to do everything with source code</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>monkey-patching -</h2>
+	<p><a target="_blank" href="examples/debugger_bad.html">Example</a></p>
+	<ul>
+		<li>Allows to do everything with source code</li>
+		<li>Difficult to use without breaking code</li>
+	</ul>
+</section>
+
+
+
+
 <footer class="badge">
 	<a href="https://github.com/shower/shower">Fork me on GitHub</a>
 </footer>
